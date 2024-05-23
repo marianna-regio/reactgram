@@ -9,6 +9,8 @@ Estrutura base do projeto:
 
 * Vamos começar pelo backend.
 
+* Senha mongoadb: bd6RS0k1wibVKTLt
+
 ### Backend: 
 
 * Pacotes: 
@@ -36,3 +38,6 @@ Estrutura base do projeto:
 * Cria o arquivo .env no mesmo nivel de app.js e declara as chaves e valores
 * Voltando pra app.js acessa esse valor com ```process.env.<variavel>```
 
+#### Conexão com o banco
+
+* Criar usuário em https://www.mongodb.com/products/platform/atlas-database
