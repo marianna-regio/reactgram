@@ -24,5 +24,14 @@ Estrutura base do projeto:
 
     * nodemon (dependencia de desenvolvimento): simula o servidor localmente
 
-1 - Criar configs e inicializar o app em _app.js_
-2 - Criar script para executar o projeto (nodemon)
+
+#### Aula 1 - Setup
+    1 - Criar configs e inicializar o app em _app.js_
+
+    2 - Criar script para executar o projeto (nodemon), e executar a cada salvamento
+
+#### Aula 2 Configurando o DOTENV
+ 
+* Em app.js chamamos o ```require("dotenv").config()```
+* Cria o arquivo .env no mesmo nivel de app.js e declara as chaves e valores
+* Voltando pra app.js acessa esse valor com ```process.env.<variavel>```
