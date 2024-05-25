@@ -41,3 +41,27 @@ Estrutura base do projeto:
 #### Conexão com o banco
 
 * Criar usuário em https://www.mongodb.com/products/platform/atlas-database
+* Copiar URL gerada, substituir dados pelas variaveis de ambiente
+* Fazer uma chamada assincrona para essa URL, com o metodo connect do mongoose
+```
+./backend/config/db.js
+
+const conn = async () => {
+  try {
+    const dbConn = await mongoose.connect(
+        `mongodb+srv://${dbUser}:${dbPassword}@cluster0.rqtstec.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+    );
+    console.log('Conectou ao banco!')
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+```
+
+### Criação dos models
+
+* É como se fosse a collection do nosso banco
+* Criamos dentro da pasta models, um schema e depois atribuimos o schema a esse model
+* Temos no projeto User e Images
+
