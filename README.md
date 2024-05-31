@@ -65,3 +65,7 @@ const conn = async () => {
 * Criamos dentro da pasta models, um schema e depois atribuimos o schema a esse model
 * Temos no projeto User e Images
 
+### Controller do usuario (autenticação)
+
+* Quando usamos jwt(json web tokens) precisamos de um _secret_ para outras pessoas que usam jwt mao hackearem nosso sistema
+* Definimos aqui o valor em ```.env: JWT_SECRET ``` e é usado na hora de criar descriptografar o token;
