@@ -68,4 +68,13 @@ const conn = async () => {
 ### Controller do usuario (autenticação)
 
 * Quando usamos jwt(json web tokens) precisamos de um _secret_ para outras pessoas que usam jwt mao hackearem nosso sistema
-* Definimos aqui o valor em ```.env: JWT_SECRET ``` e é usado na hora de criar descriptografar o token;
+* Definimos aqui o valor em ```.env: JWT_SECRET ``` e é usado na hora de criar e descriptografar o token;
+* Usamos o jwt para criar uma função de gerar token, que recebe um id;
+* Criamos a função de registrar o usuário, e atribuimos ela ao método post de uma rota, usando express em ```/routes/UserRoutes.js```
+
+### Middleware - validações
+
+* Vamos validar os dados da requisição com o validate do express
+* Verificamos se os erros estão vazios com o metodo isEmpty do validate, se sim significa que não temos erro, entao prosseguimos;
+* Caso haja erros, salvamos num array e retornamos com status e resposta de erro;
+* Usamos essa validação nas rotas. 
