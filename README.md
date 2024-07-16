@@ -79,9 +79,24 @@ const conn = async () => {
 * Caso haja erros, salvamos num array e retornamos com status e resposta de erro;
 * Usamos essa validação nas rotas. 
 
-### Middleware - Validações de usuário
+### Validações de usuário (middleware)
 
 * Criamos validações usando express-validator em ```/middlewares/userValidations.js```
 * ```userCreateValidation()``` valida os campos com metodos do [validator.js](https://github.com/validatorjs/validator.js)
 * Importamos a função em ```UserRoutes``` e passamos na declaração da rota _/register_ antes do middeware _validate_ (é importamente chamar a função ())
 * _userCreateValidation()_ cria os erros, e _validate_ resgata e devolve. 
+
+### Registro do usuário (controller)
+
+* Voltando a função _register_ em ```/controllers/UserController.js``` extraimos os campos que iremos validar da requisição ```req.body ```
+* Verificamos se o email esta cadastrado em ```User``` (mongoDb) com o metodo: 
+
+> const user = await User.findOne({email})
+
+* Em seguida, geramos o hash para salvamento da senha no banco de dados. Nunca salvamos a senha do usuário, sempre um hash. 
+* Fazemos isso usando o **bcrypt** gerando um salt(numero aleatório) e passando junto com a senha para o método **_hash_**
+``` 
+const salt = await bcript.genSalt()
+const passwordHash = await bcript.hash(password, salt) 
+```
+* Feito isso criamos o usuário com o método do mongoDB ```User.create```
