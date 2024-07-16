@@ -100,3 +100,4 @@ const salt = await bcript.genSalt()
 const passwordHash = await bcript.hash(password, salt) 
 ```
 * Feito isso criamos o usuário com o método do mongoDB ```User.create```
+* Criamos também a rota e as validações de login
