@@ -8,7 +8,9 @@ const { register } = require("../controllers/UserController");
 //Middlewares
 const validate = require("../middlewares/handleValidations");
 
+const {userCreateValidation} = require("../middlewares/userValidations")
+
 //Routes
-router.post("/register",validate,register);
+router.post("/register", userCreateValidation(), validate, register);
 
 module.exports = router;

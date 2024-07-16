@@ -78,3 +78,10 @@ const conn = async () => {
 * Verificamos se os erros estão vazios com o metodo isEmpty do validate, se sim significa que não temos erro, entao prosseguimos;
 * Caso haja erros, salvamos num array e retornamos com status e resposta de erro;
 * Usamos essa validação nas rotas. 
+
+### Middleware - Validações de usuário
+
+* Criamos validações usando express-validator em ```/middlewares/userValidations.js```
+* ```userCreateValidation()``` valida os campos com metodos do [validator.js](https://github.com/validatorjs/validator.js)
+* Importamos a função em ```UserRoutes``` e passamos na declaração da rota _/register_ antes do middeware _validate_ (é importamente chamar a função ())
+* _userCreateValidation()_ cria os erros, e _validate_ resgata e devolve. 
